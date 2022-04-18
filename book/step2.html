@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Your information</h2>
+
+<form>
+  <label for="name">Your name:</label><br>
+  <input type="text" id="name" name="name" value=""><br>
+  <label for="numadults">How many adults:</label><br>
+  <input type="range" id="numadults" name="vol" min="0" max="5"><br>
+  <label for="numchildren">How many children:</label><br>
+  <select name="numchildren" id="numchildren">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select><br><br>
+  <button type="button" id="previous">Privous</button>
+  <button type="button" id="next">Next</button>
+</form>
+
+</body>
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+
+const name = urlParams.get("name");
+if (name) {
+  document.getElementById("name").value = decodeURIComponent(name);
+}
+
+const numadults = urlParams.get("numadults");
+if (numadults) {
+  document.getElementById("numadults").value = decodeURIComponent(numadults);
+}
+
+const numchildren = urlParams.get("numchildren");
+if (numchildren) {
+  document.getElementById("numchildren").value = decodeURIComponent(numchildren);
+}
+
+const stay = urlParams.get("stay");
+
+document.getElementById("previous").addEventListener("click", () => {
+  window.location = "step1.html?stay=" + stay;
+});
+
+document.getElementById("next").addEventListener("click", () => {
+  window.location = "step3.html?name=" + encodeURIComponent(document.getElementById("name").value) + "&stay=" + stay + "&numadults=" + encodeURIComponent(document.getElementById("numadults").value) + "&numchildren=" + encodeURIComponent(document.getElementById("numchildren").value);
+});
+
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Last step!</h2>
+
+<form>
+  <input type="text" id="name" name="name" disabled><br>
+  <input id="numadults" name="numadults" disabled><br>
+  <input id="numchildren" name="numchildren" disabled><br>
+  <input id="stay" name="stay" disabled><br>
+  <input id="rooms" name="rooms" disabled><br>
+  <input id="roomcolor" name="roomcolor" disabled><br>
+
+  <label for="email">Your email:</label><br>
+  <input type="email" id="email" name="email" value=""><br>
+  <p>Do you agree with the local native conservation initiative agreement</p>
+  <div>
+    <input type="radio" id="yesagree" name="agree" value="yes">
+    <label for="yesagree">Yes</label>
+  </div>
+
+  <div>
+    <input type="radio" id="noagree" name="agree" value="no" checked>
+    <label for="noagree">No</label>
+  </div>
+  <br>
+
+  <button type="button" id="privious">Previous</button><br>
+  <button type="button" id="done">Done</button><br><br>
+
+
+</form>
+
+</body>
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+
+const name = urlParams.get("name");
+document.getElementById("name").value = "Your name:" + name;
+
+const numadults = urlParams.get("numadults");
+document.getElementById("numadults").value = "Number of adults:" + numadults;
+
+const numchildren = urlParams.get("numchildren");
+document.getElementById("numchildren").value = "Number of children:" + numchildren;
+
+const stay = urlParams.get("stay");
+document.getElementById("stay").value = "Date stay:" + stay;
+
+const rooms = urlParams.get("rooms");
+document.getElementById("rooms").value = "Rooms:" + rooms;
+
+const roomcolor = urlParams.get("roomcolor");
+document.getElementById("roomcolor").value = "Room color:" + roomcolor;
+
+document.getElementById("privious").addEventListener("click", () => {
+  window.location = "step3.html?name=" + name + "&stay=" + stay + "&numadults=" + numadults + "&numchildren=" + numchildren + "&rooms=" + rooms + "&roomcolor=" + encodeURIComponent(roomcolor);
+});
+
+</script>
+</html>

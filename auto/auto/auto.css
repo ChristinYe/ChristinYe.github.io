@@ -1,0 +1,28 @@
+#reifen1 {
+    position: absolute;
+    left: 315px;
+    top: 543px;
+    z-index: 11;
+    transform: rotateY(-55deg);
+    -webkit-transform: rotateY(-55deg);
+    -moz-transform: rotateY(-55deg);
+}
+
+#reifen2 {
+    position: absolute;
+    left: 882px;
+    top: 633px;
+    z-index: 11;
+    transform: rotateY(-75deg);
+    -webkit-transform: rotateY(-75deg);
+    -moz-transform: rotateY(-75deg);
+}
+ 
+#felge1 {
+    height: 248px;
+    width: auto;
+}
+
+#autoContainer {
+    transform: scale(1);
+}

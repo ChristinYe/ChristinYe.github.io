@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Choose your room</h2>
+
+<form>
+  <label for="rooms">Number of rooms:</label><br>
+  <input type="number" id="rooms" name="rooms"
+       min="1" max="5"><br>
+  <label for="roomcolor">What paint color do you like</label><br>
+  <input type="color" id="roomcolor" name="roomcolor" value="#ff0000"><br><br>
+  <button type="button" id="privious">Previous</button>
+  <button type="button" id="next">Next</button>
+</form>
+
+</body>
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+
+const name = urlParams.get("name");
+
+const numadults = urlParams.get("numadults");
+
+const numchildren = urlParams.get("numchildren");
+
+const stay = urlParams.get("stay");
+
+const rooms = urlParams.get("rooms");
+if (rooms && rooms !== 'null') {
+  document.getElementById("rooms").value = decodeURIComponent(rooms);
+}
+
+const roomcolor = urlParams.get("roomcolor");
+if (roomcolor && roomcolor !== 'null') {
+  document.getElementById("roomcolor").value = decodeURIComponent(roomcolor);
+}
+
+document.getElementById("privious").addEventListener("click", () => {
+  window.location = "step2.html?name=" + name + "&stay=" + stay + "&numadults=" + numadults + "&numchildren=" + numchildren;
+});
+
+
+document.getElementById("next").addEventListener("click", () => {
+  window.location = "step4.html?name=" + name + "&stay=" + stay + "&numadults=" + numadults + "&numchildren=" + numchildren + "&rooms=" + encodeURIComponent(document.getElementById("rooms").value) + "&roomcolor=" + encodeURIComponent(document.getElementById("roomcolor").value);
+});
+
+</script>
+</html>

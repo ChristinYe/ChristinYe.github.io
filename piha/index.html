@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./mystyle.css">
+    </head>
+    <div id="canvas">
+        <div id="studentInfo">
+            <text id="studentName">Tingfang Ye</text><br/>
+			<text id="studentId">1563582</text>
+        </div>
+        <div id="contentContainer">
+            <div id="backgroundColorBlock">
+                <img id="image3" src="./img3.png"/>
+            </div>
+            <div id="forgroundLeftColumn">
+                <img id="image1" src="./img1.jpg"/>
+                <text id="text2">Activities</text>
+            </div>
+            <div id="forgroundRightColumn">
+                <div id="titleContainer">
+                    <text id="text1out">
+                        <text id="text1in">
+                            <text id="text1">Piha</text>
+                        </text>
+                    </text>
+                    <a href="http://www.piha.co.nz/" target="_blank">Let's go</a>
+                </div>
+                <img id="image2" src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/8f80f67b385156d5890ac580/ds.jpg"/>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const image1 = document.getElementById("image1");
+        image1.addEventListener('animationend', () => {
+            image1.style.display = 'none';
+            image1.style.opacity = 0;
+        });
+    </script>
+</html>

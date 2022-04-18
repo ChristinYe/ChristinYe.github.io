@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>When will you stay</h2>
+
+<form>
+  <input type="date" id="stay" name="stay"><br><br>
+  <button type="button" id="next">Next</button><br>
+</form>
+
+</body>
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+
+const stay = urlParams.get("stay");
+
+if (stay) {
+  document.getElementById("stay").value = decodeURIComponent(stay);
+}
+
+document.getElementById("next").addEventListener("click", () => {
+  window.location = "step2.html?stay=" + encodeURIComponent(document.getElementById("stay").value);
+});
+
+</script>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<head>
+    <link rel="stylesheet" href="./auto.css">
+</head>
+<body>
+    <div id="autoContainer">
+      <div id="reifen1">
+        <img src="./felge.png" id="felge1">
+      </div>
+      <div id="reifen2">
+        <img src="./felge.png" id="felge1">
+      </div>
+      <img src="./auto.jpg" id="auto">
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js"></script>
+
+<script>
+function startReifen() {
+    reifenTween= new TweenMax("#felge1, #felge2", 0.25, {
+        rotation: '-=360_cw',
+        ease: Linear.easeNone,
+        repeat: -1
+    });
+ 
+    TweenMax.to(reifenTween, 1.0, { 
+        timeScale: 0, 
+        delay: 1.1, 
+        ease: Back.easeOut.config(0.6) 
+    });
+    return reifenTween;
+}
+
+startReifen()
+</script>
+</html>
